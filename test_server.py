@@ -1,13 +1,14 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import cgi
+import urllib.parse
 
 class TestServerHandler(BaseHTTPRequestHandler):
     def do_POST(self):
-        content_type, _ = cgi.parse_header(self.headers['Content-Type'])
+        content_type, _ = self.headers.get('Content-Type', '').split(';')
         if content_type == 'application/x-www-form-urlencoded':
-            content_length = int(self.headers['Content-Length'])
+            content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length).decode('utf-8')
-            print(f"Received data: {post_data}")
+            data = urllib.parse.parse_qs(post_data)
+            print(f"Received data: {data}")
 
             # You can process the received data here or store it in a database, etc.
 
