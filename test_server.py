@@ -2,6 +2,12 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 
 class TestServerHandler(BaseHTTPRequestHandler):
+    def do_HEAD(self):
+        print(f"Received HEAD request from: {self.client_address[0]}")
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        
     def do_POST(self):
         content_type, _ = self.headers.get('Content-Type', '').split(';')
         if content_type == 'application/x-www-form-urlencoded':
