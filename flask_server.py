@@ -8,7 +8,10 @@ def handle_data():
 
     response_data = {'message': f'Received parameter a={param_a}'}
 
+    print(f'Received parameter a={param_a}')
+
+    # Return an empty response (optional)
     return jsonify(response_data)
 
 if __name__ == '__main__':
-    app.run(host='192.168.43.23', port=80)  
+    app.run(host='192.168.0.102', port=80)  
