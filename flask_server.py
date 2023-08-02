@@ -5,10 +5,11 @@ app = Flask(__name__)
 @app.route('/dropdata', methods=['GET'])
 def handle_data():
     param_a = request.args.get('a')
+    param_b = request.args.get('b')
 
-    response_data = {'message': f'Received parameter a={param_a}'}
+    response_data = {'message': f'Received parameter a={param_a}, b={param_b}'}
 
-    print(f'Received parameter a={param_a}')
+    print(f'Received parameter a={param_a}, b={param_b}')
 
     # Return an empty response (optional)
     return jsonify(response_data)
