@@ -6,10 +6,14 @@ app = Flask(__name__)
 def handle_data():
     param_a = request.args.get('a')
     param_b = request.args.get('b')
+    param_c = request.args.get('c')
+    param_d = request.args.get('d')
+    param_e = request.args.get('e')
+    param_f = request.args.get('f')
 
-    response_data = {'message': f'Received parameter a={param_a}, b={param_b}'}
+    response_data = {'message': f'Received parameter a={param_a}, b={param_b}, c={param_c}, d={param_d}, e={param_e}, f={param_f}'}
 
-    print(f'Received parameter a={param_a}, b={param_b}')
+    print(f'Received parameter a={param_a}, b={param_b}, c={param_c}, d={param_d}, e={param_e}, f={param_f}')
 
     # Return an empty response (optional)
     return jsonify(response_data)
