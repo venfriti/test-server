@@ -10,10 +10,20 @@ def handle_data():
     param_d = request.args.get('d')
     param_e = request.args.get('e')
     param_f = request.args.get('f')
+    param_g = request.args.get('g')
+    param_h = request.args.get('h')
 
-    response_data = {'message': f'Received parameter a={param_a}, b={param_b}, c={param_c}, d={param_d}, e={param_e}, f={param_f}'}
-
-    print(f'Received parameter a={param_a}, b={param_b}, c={param_c}, d={param_d}, e={param_e}, f={param_f}')
+    response_data = {
+        'message': (
+        f'Received parameter a={param_a}, b={param_b}, c={param_c}, '
+        f'd={param_d}, e={param_e}, f={param_f}, g={param_g}, h={param_h}'
+        )
+    }
+    
+    print(
+        f'Received parameter a={param_a}, b={param_b}, c={param_c}, '
+        f'd={param_d}, e={param_e}, f={param_f}, g={param_g}, h={param_h}'
+        )
 
     # Return an empty response (optional)
     return jsonify(response_data)
